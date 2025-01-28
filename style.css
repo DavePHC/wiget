@@ -1,0 +1,441 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+:root {
+    
+    --border-radius-l: 36px;
+    --border-radius-m: 12px;
+    --border-radius-s: 8px;
+    --wiget-number: 4px;
+    --pl-wgbtn: 12px;
+    --block-padding: 24px;
+    --rb-wiget-block-width-s: 360px;
+    --rb-wiget-block-width-m: 468px;
+    --rb-wiget-block-width-l: 520px;
+    --rb-wiget-block-gap: 20px;
+
+    --rb-wiget-button-heigth-s: 40px;
+    --rb-wiget-button-heigth-m: 48px;
+    --rb-wiget-button-heigth: 56px;
+
+    --white: #fff;
+    --black: #000;
+    --grey-10: #FDFDFD;
+    --grey-20: #F2F2F2;
+    --grey-150: #EDF2F8;
+    --grey-480: #C2C6CE;
+    --grey-900: #1C1C1C;
+    --caterpillar: #CDFC68;
+    --theme-background: var(--white);
+    --title-black: #263238;
+    --body-text: #455A64;
+
+    --primary: #023D5E;
+    --primary-50: #F2F5F7;
+    --primary-200: #CCD8DF;
+}
+
+@media (hover: hover) {
+    
+}
+
+@media (hover: none) and (pointer: coarse) {
+    /* ... */
+}
+
+.rb-wiget {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.rb-wiget,
+.rb-wiget * {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    line-height: 1.42;
+    font-weight: 400;
+}
+
+.rb-wiget-button {
+    height: calc(12 * var(--wiget-number));
+    border: none;
+    padding: 0;
+    background-color: var(--grey-900);
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr auto;
+}
+
+.rb-wiget-button_small {
+    height: calc(10 * var(--wiget-number));
+}
+
+.rb-wiget-button_medium {
+    height: calc(12 * var(--wiget-number));
+    border-radius: var(--border-radius-l);
+}
+
+.rb-wiget-button_large {
+    height: calc(14 * var(--wiget-number));
+    border-radius: var(--border-radius-s);
+}
+
+.rb-wiget-button__text {
+    padding: 0 var(--pl-wgbtn);
+    text-align: center;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.rb-wiget-button__icons {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 var(--pl-wgbtn);
+}
+
+.rb-wiget-button__icon {
+    width: 24px;
+    height: 24px;
+    margin-left: -4px;
+}
+
+.rb-wiget-button_large .rb-wiget-button__icon {
+    width: 36px;
+    height: 36px;
+}
+
+.rb-wiget-button__icon:first-child {
+    margin: 0;
+}
+
+.rb-wiget-button__icons::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background-color: var(--white);
+    display: inline-block;
+}
+
+.rb-wiget-block {
+    position: relative;
+    border-radius: var(--border-radius-m);
+    padding: var(--block-padding);
+    background-color: var(--theme-background);
+    max-width: var(--rb-wiget-block-width-l);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--rb-wiget-block-gap);
+}
+
+.rb-wiget-close {
+    background: none;
+    padding: 0;
+    border: none;
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    top: 24px;
+    right: 24px;
+}
+
+.rb-wiget-block__title {
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 32px;
+    color: var(--title-black);
+}
+
+.rb-wiget-block__content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.rb-wiget-block__methods {
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+    background-color: var(--grey-20);
+}
+
+.rb-wiget-block__method {
+    border: 0;
+    padding: 2px 14px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: var(--rb-wiget-button-heigth-m);
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--body-text);
+}
+
+.rb-wiget-block__method_s {
+    height: var(--rb-wiget-button-heigth-s);
+}
+
+.rb-wiget-block__method.active {
+    color: var(--title-black);
+    background-color: var(--grey-10);
+}
+
+.rb-wiget-block__split {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.split-item {
+    padding-top: 12px;
+    position: relative;
+    width: 100%;
+}
+
+.split-item span {
+    display: block;
+    font-weight: 500;
+    color: var(--grey-480);
+}
+
+.split-item:first-child span {
+    font-weight: 700;
+    color: var(--title-black);
+}
+
+.split-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 4px;
+    border-radius: 8px;
+    background-color: var(--grey-150);
+}
+
+.split-item:first-child::before {
+    background-color: var(--black);
+}
+
+.rb-wiget-block__text {
+    margin: 0;
+    color: var(--black);
+}
+
+.rb-wiget-block__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.rb-wiget-block__list-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.rb-wiget-block__list-item p {
+    margin: 0;
+    color: var(--title-black);
+}
+
+.fee {
+    margin: 0;
+    color: var(--black);
+}
+
+.rb-wiget-block__button {
+    border: none;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: var(--rb-wiget-button-heigth);
+    background-color: var(--grey-900);
+    border-radius: var(--border-radius-s);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.rb-wiget-block__footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.rb-wiget-block__footer-text {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 2;
+    color: var(--title-black);
+}
+
+/* CONSTRUCTOR */
+
+.wiget-constructor * {
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    line-height: 1.42;
+    font-weight: 400;
+    max-width: 520px;
+    width: 100%;
+}
+
+.wiget-constructor {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.wiget-constructor-title {
+    margin: 0;
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--body-text);
+}
+
+.wiget-method {
+    padding: 24px;
+    background-color: var(--primary-50);
+    border-radius: 10px;
+}
+
+.wiget-method-header {
+    position: relative;
+}
+
+.wiget-method-header__name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.wiget-method-header__name span {
+    width: max-content;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--title-black);
+}
+
+.hide-checkbox {
+    position: absolute;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    appearance: none;
+}
+
+.fake-checkbox {
+    position: relative;
+    width: 40px;
+    height: 24px;
+    border-radius: 22px;
+    background-color: var(--primary-200);
+    transition: background-color .2s;
+}
+
+.fake-checkbox::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--white);
+    transition: transform .2s;
+}
+
+.hide-checkbox:checked ~ .fake-checkbox {
+    background-color: var(--primary);
+}
+
+.hide-checkbox:checked ~ .fake-checkbox::after {
+    transform: translateX(16px);
+}
+
+.wiget-method-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.constructor-item {
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.wiget-constructor-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.wiget-constructor-button {
+    padding: 0;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: var(--rb-wiget-button-heigth);
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.wiget-constructor-button_continue {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.wiget-constructor-button_back {
+    background-color: var(--white);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
